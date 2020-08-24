@@ -24,17 +24,7 @@ namespace WiredBrainCoffee.Pages
 
         public void OnGet()
         {
-            try
-            {
-                Menu = menuService.GetMenuItems();
-                throw new Exception();
-            }
-            catch (Exception e)
-            {
-                logger.Log(LogLevel.Debug, "Could not retrieve menu.");
-            }
-                
-            
+            Menu = menuService.GetMenuItems();
         }
     }
 }
