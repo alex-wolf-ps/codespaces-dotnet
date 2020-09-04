@@ -11,7 +11,6 @@ namespace WiredBrainCoffee.Pages
 {
     public class ContactModel : PageModel
     {
-        [BindProperty]
         public Contact Contact { get; set; }
         public string Message { get; private set; }
 
