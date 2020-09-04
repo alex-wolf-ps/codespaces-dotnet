@@ -23,7 +23,7 @@ namespace WiredBrainCoffee.Pages
         {
             if (ModelState.IsValid)
             {
-                EmailService.SendEmail(Contact);
+                EmailService.SendEmail(Contact.Email);
                 return RedirectToPage("Confirmation", "Contact");
             }
             else
