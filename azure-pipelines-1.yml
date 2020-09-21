@@ -24,3 +24,14 @@ steps:
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Pay-As-You-Go (e322fe5a-eea7-41b2-a2a4-97732b067738)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az webapp create -g testprojects -p devopsplan -n $(Build.SourceBranchName)'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Pay-As-You-Go (e322fe5a-eea7-41b2-a2a4-97732b067738)'
+    appName: $(Build.SourceBranchName)
+    package: $(System.DefaultWorkingDirectory)/**/*.zip    
